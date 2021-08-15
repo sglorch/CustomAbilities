@@ -1,0 +1,6 @@
+name: CustomAbilities
+version: '${project.version}'
+main: de.sglorch.sta.customabilities.CustomAbilities
+api-version: 1.17
+prefix: CustomAbilities
+website: https://sta.sglorch.de

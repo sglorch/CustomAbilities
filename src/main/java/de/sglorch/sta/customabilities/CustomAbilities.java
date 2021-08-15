@@ -15,8 +15,10 @@ public final class CustomAbilities extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         this.getServer().getPluginManager().registerEvents(new STAListener(), this);
+        // Permissions müssen auf default false stehen, da sonst OPs alle Abilities gleichzeitig haben
         this.getServer().getPluginManager().addPermission(new Permission(CustomAbilities.PERM_WIKINGER, PermissionDefault.FALSE));
         this.getServer().getPluginManager().addPermission(new Permission(CustomAbilities.PERM_SIRENE, PermissionDefault.FALSE));
+
         this.getServer().getLogger().log(Level.INFO, "[CustomAbilities] STA Abilities enabled!");
     }
 

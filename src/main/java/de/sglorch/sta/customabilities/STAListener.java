@@ -22,7 +22,7 @@ public class STAListener implements Listener {
         Sirene
          */
         // Im Wasser
-        if(player.hasPermission(CustomAbilities.PERM_SIRENE) && player.isInWater()) {
+        if (player.hasPermission(CustomAbilities.PERM_SIRENE) && player.isInWater()) {
             player.addPotionEffect(
                     new PotionEffect(
                             PotionEffectType.WATER_BREATHING,
@@ -37,7 +37,7 @@ public class STAListener implements Listener {
             );
         }
         // Nicht im Wasser
-        else if(player.hasPermission(CustomAbilities.PERM_SIRENE) && !player.isInWater()) {
+        else if (player.hasPermission(CustomAbilities.PERM_SIRENE) && ! player.isInWater()) {
             player.addPotionEffect(
                     new PotionEffect(
                             PotionEffectType.SLOW,
@@ -48,19 +48,19 @@ public class STAListener implements Listener {
         /*
         Wikinger
          */
-        if(player.hasPermission(CustomAbilities.PERM_WIKINGER)
+        if (player.hasPermission(CustomAbilities.PERM_WIKINGER)
                 && (
-                        player.getLocation().getBlock().getBiome().equals(Biome.FROZEN_OCEAN)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.FROZEN_RIVER)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TUNDRA)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_MOUNTAINS)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_BEACH)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA_HILLS)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA_MOUNTAINS)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.ICE_SPIKES)
-                    ||  player.getLocation().getBlock().getBiome().equals(Biome.DEEP_FROZEN_OCEAN)
-                )) {
+                player.getLocation().getBlock().getBiome().equals(Biome.FROZEN_OCEAN)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.FROZEN_RIVER)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TUNDRA)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_MOUNTAINS)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_BEACH)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA_HILLS)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.SNOWY_TAIGA_MOUNTAINS)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.ICE_SPIKES)
+                        || player.getLocation().getBlock().getBiome().equals(Biome.DEEP_FROZEN_OCEAN)
+        )) {
 
             player.addPotionEffect(
                     new PotionEffect(
@@ -75,12 +75,13 @@ public class STAListener implements Listener {
     public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if(player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
+        if (player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
             this.applyWikingerEffekte(player);
         }
 
         // TODO weitere permanente Effekte
     }
+
     private void applyWikingerEffekte(@NotNull Player player) {
         player.addPotionEffect(
                 new PotionEffect(
@@ -95,12 +96,13 @@ public class STAListener implements Listener {
                         1)
         );
     }
+
     @EventHandler
     public void onPlayerConsume(@NotNull PlayerItemConsumeEvent event) {
-        if(event.getItem().getType().equals(Material.MILK_BUCKET)) {
+        if (event.getItem().getType().equals(Material.MILK_BUCKET)) {
             Player player = event.getPlayer();
 
-            if(player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
+            if (player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
 
                 this.applyWikingerEffekte(player);
             }

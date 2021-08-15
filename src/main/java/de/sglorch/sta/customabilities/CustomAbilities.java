@@ -16,11 +16,12 @@ public final class CustomAbilities extends JavaPlugin {
         this.getServer().getPluginManager().registerEvents(new STAListener(), this);
         this.getServer().getPluginManager().addPermission(new Permission(CustomAbilities.PERM_WIKINGER));
         this.getServer().getPluginManager().addPermission(new Permission(CustomAbilities.PERM_SIRENE));
-        this.getServer().getLogger().log(Level.INFO, "STA Abilites enabled!");
+        this.getServer().getLogger().log(Level.INFO, "[CustomAbilities] STA Abilities enabled!");
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        this.getServer().getLogger().log(Level.INFO, "[CustomAbilities] STA Abilities disabled!");
     }
 }

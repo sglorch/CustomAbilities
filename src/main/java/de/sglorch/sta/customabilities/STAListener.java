@@ -10,11 +10,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
 
 public class STAListener implements Listener {
 
     @EventHandler
-    public void onPlayerMove(PlayerMoveEvent event) {
+    public void onPlayerMove(@NotNull PlayerMoveEvent event) {
         Player player = event.getPlayer();
 
         /*
@@ -71,7 +72,7 @@ public class STAListener implements Listener {
     }
 
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event) {
+    public void onPlayerJoin(@NotNull PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
         if(player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
@@ -80,7 +81,7 @@ public class STAListener implements Listener {
 
         // TODO weitere permanente Effekte
     }
-    private void applyWikingerEffekte(Player player) {
+    private void applyWikingerEffekte(@NotNull Player player) {
         player.addPotionEffect(
                 new PotionEffect(
                         PotionEffectType.DAMAGE_RESISTANCE,
@@ -95,11 +96,12 @@ public class STAListener implements Listener {
         );
     }
     @EventHandler
-    public void onPlayerConsume(PlayerItemConsumeEvent event) {
+    public void onPlayerConsume(@NotNull PlayerItemConsumeEvent event) {
         if(event.getItem().getType().equals(Material.MILK_BUCKET)) {
             Player player = event.getPlayer();
 
             if(player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
+
                 this.applyWikingerEffekte(player);
             }
 

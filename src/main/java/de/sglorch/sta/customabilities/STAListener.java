@@ -1,5 +1,6 @@
 package de.sglorch.sta.customabilities;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
@@ -103,8 +104,12 @@ public class STAListener implements Listener {
             Player player = event.getPlayer();
 
             if (player.hasPermission(CustomAbilities.PERM_WIKINGER)) {
-
-                this.applyWikingerEffekte(player);
+                Bukkit.getServer().getScheduler().runTask(Bukkit.getPluginManager().getPlugin("CustomAbilities"), new Runnable() {
+                    @Override
+                    public void run() {
+                        applyWikingerEffekte(player);
+                    }
+                });
             }
 
             // TODO weitere permanente Effekte

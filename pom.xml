@@ -15,7 +15,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    <url>https://sta.sglorch.de</url>
+    <url>https://sta.sglorch.de/abilities</url>
 
     <build>
         <plugins>
